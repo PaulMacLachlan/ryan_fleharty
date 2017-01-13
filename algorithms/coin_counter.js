@@ -45,6 +45,4 @@ coin_counter (5);
             amount -=1;
             fanny_pack.pennies += 1;
         };
-    };
-coin_counter(67);
-console.log(fanny_pack); */
+    };      */
