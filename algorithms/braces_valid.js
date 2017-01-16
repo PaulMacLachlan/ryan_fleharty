@@ -15,7 +15,6 @@ function braces_valid(string){
         if ( opens.indexOf(current) >= 0){ //check if that char is in the opens array
             brace_set[string[i]][1] += 1; //increase that key's valence value
             unresolved.unshift(current); //add the char to the array of unresolved opens
-            console.log(unresolved); //this will validate later close parens to make sure you're not mixing types
         }
         else if (closes.indexOf(current) >= 0 ){ //check if its in the closes array
             var location = closes.indexOf(current); //find out which part of the closes array it's at
@@ -28,7 +27,6 @@ function braces_valid(string){
                 return false;
             };
             unresolved.shift(key); //take the open paren off the unresolved array now that it's resolved
-            console.log(unresolved);
         }; //end of the else procedure for close parens
     };
     for( key in brace_set){
@@ -40,4 +38,4 @@ function braces_valid(string){
 };
 
 console.log(braces_valid("({[Hello World]})"));
-console.log(braces_valid("True True[ () Very {True()}]"));
+console.log(braces_valid("True True[ () Very {True(})]"));
