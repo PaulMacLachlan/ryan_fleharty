@@ -6,9 +6,9 @@ function parens_valid (string){
         }
         else if (string[i] == ')'){ //if its a closed paren, reduce the valence by one
             valence -= 1;
-        };
-        if (valence < 0){ //after each char is checked, check if there are more closed parens than open
-            return false;
+            if (valence < 0){ //check if there are more closed parens than open
+                return false;
+            };
         };
     }; //end of the for loop. If code gets past here, valence is either positive or 0. Positive would mean more opens than closes.
     if (valence != 0){ //If there were more opens than closes, it's still not valid
