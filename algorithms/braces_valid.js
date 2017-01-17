@@ -1,7 +1,9 @@
-//Given a string and a set of braces, run parens_valid on all of them
-function braces_valid(string){
-    var brace_set = {'(':')', '{':'}', '[':']'}; //the function could be refactored to include brace_set as a parameter instead...
-    var opens = Object.keys(brace_set); //make an array of all the open parentheses
+//Given a string and a set of braces, test the validity of all the braces in the string.
+function braces_valid(string, brace_set){ //I assume brace_set will be an object with key:value pairs consisting of open:closed braces.
+    if(!brace_set){ //What if the user doesn't give you a brace_set? It's an easy parameter to forget...
+        brace_set = {'(':')', '{':'}', '[':']'}; //Give the user a default set if they don't enter a brace_set parameter
+    };
+    var opens = Object.keys(brace_set); //make an array of all the open parentheses.
     var closes = []; //and an array for all the closed parentheses. Object.values would be nice...
     var unresolved = []; //tracks unresolved open parens in the string
     for ( key in brace_set){ //This loop will revise brace_set to include a tracker for all paren types
